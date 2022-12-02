@@ -23,32 +23,32 @@ public class MovieManagerTest {
         manager.addMovie("Film2");
         manager.addMovie("Film3");
 
-        String[] actual = manager.findLast(10);
+        String[] actual = manager.findLast();
         String[] expected = {"Film3", "Film2", "Film1"};
 
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
     public void revertedResultTestEqualsLimit() {
-        MovieManager manager = new MovieManager();
+        MovieManager manager = new MovieManager(3);
         manager.addMovie("Film1");
         manager.addMovie("Film2");
         manager.addMovie("Film3");
 
-        String[] actual = manager.findLast(3);
+        String[] actual = manager.findLast();
         String[] expected = {"Film3", "Film2", "Film1"};
 
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
     public void revertedResultTestExceedsLimit() {
-        MovieManager manager = new MovieManager();
+        MovieManager manager = new MovieManager(3);
         manager.addMovie("Film1");
         manager.addMovie("Film2");
         manager.addMovie("Film3");
         manager.addMovie("Film4");
 
-        String[] actual = manager.findLast(3);
+        String[] actual = manager.findLast();
         String[] expected = {"Film4", "Film3", "Film2"};
 
         Assertions.assertArrayEquals(expected, actual);
